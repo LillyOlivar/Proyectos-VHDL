@@ -1,4 +1,5 @@
 library	IEEE;
+library	IEEE;
 use IEEE.std_logic_1164.all;
 
 -- Entity (empty)
@@ -12,12 +13,12 @@ architecture arch_test of DMux4Way_test is
 	component DMux4Way
 		port(
 		a 	: in std_logic;
-		sel : in std_logic;
-		sel2 : in std_logic;
+		sel     : in std_logic;
+		sel2   : in std_logic;
 		y1: out std_logic;	
 		y2: out std_logic;
-		y3:	out	std_logic;
-		y4	:	out	std_logic
+		y3     :out	std_logic;
+		y4	: out	std_logic
 		);
 		
 	end component;
@@ -61,7 +62,7 @@ architecture arch_test of DMux4Way_test is
 		
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '0' and y3_test = '0' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {0,0,0,0}"
+		  report "Failure for {a,sel,sel1} = {0,0,0}"
 		  severity failure;
 		
 		a_test 	<= '0';
@@ -69,7 +70,7 @@ architecture arch_test of DMux4Way_test is
 	   sel2_test   <= '1';	
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '0' and y3_test = '0' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {0,0,0,0"
+		  report "Failure for {a,sel,sel1} = {0,0,1}"
 		  severity failure;
 		
 		a_test 	<= '0';
@@ -78,7 +79,7 @@ architecture arch_test of DMux4Way_test is
 		
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '0' and y3_test = '0' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {0,0,0,0}"
+		  report "Failure for {a,sel,sel1} = {0,1,0}"
 		  severity failure;
 		
 		a_test 	<= '0';
@@ -86,7 +87,7 @@ architecture arch_test of DMux4Way_test is
 	   sel2_test   <= '1';	
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '0' and y3_test = '0' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {0,0,0,0}"
+		  report "Failure for {a,sel,sel1} = {0,1,1}"
 		  severity failure;
 		  
 		a_test 	<= '1';
@@ -94,7 +95,7 @@ architecture arch_test of DMux4Way_test is
 	   sel2_test   <= '0';	
 		wait for 1 ns;
 		assert y1_test = '1' and y2_test = '0' and y3_test = '0' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {1,0,0,0}"
+		  report "Failure for {a,sel,sel1} = {1,0,0}"
 		  severity failure;
 		  
 		a_test 	<= '1';
@@ -102,7 +103,7 @@ architecture arch_test of DMux4Way_test is
 	   sel2_test   <= '1';	
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '1' and y3_test = '0' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {0,1,0,0}"
+		  report "Failure for {a,sel,sel1} = {1,0,1}"
 		  severity failure;
 		  
 		a_test 	<= '1';
@@ -110,7 +111,7 @@ architecture arch_test of DMux4Way_test is
 	   sel2_test   <= '0';	
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '0' and y3_test = '1' and y4_test = '0'
-		  report "Failure for {a,sel,sel1} = {0,0,1,0}"
+		  report "Failure for {a,sel,sel1} = {1,1,0}"
 		  severity failure;
 		  
 		a_test 	<= '1';
@@ -118,7 +119,7 @@ architecture arch_test of DMux4Way_test is
 	   sel2_test   <= '1';	
 		wait for 1 ns;
 		assert y1_test = '0' and y2_test = '0' and y3_test = '0' and y4_test = '1'
-		  report "Failure for {a,sel,sel1} = {0,0,0,1}"
+		  report "Failure for {a,sel,sel1} = {1,1,1}"
 		  severity failure;
 		  
 
